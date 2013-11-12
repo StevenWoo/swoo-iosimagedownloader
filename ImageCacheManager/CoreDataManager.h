@@ -1,8 +1,6 @@
 //
-//  ImageCacheManager.h
+//  CoreDataManager.h
 //  ImageCacheManager
-//
-//  Created by Steven Woo on 11/11/13.
 //
 //  The MIT License (MIT)
 //
@@ -27,17 +25,13 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "OperationDownloadImage.h"
+#import <CoreData/CoreData.h>
+@interface CoreDataManager : NSObject
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
++ (id)sharedInstance;
 
-@protocol ImageCacheManageProtocol;
-@interface ImageCacheManager : NSObject <OperationDownloadImageProtocol>{
-    
-}
-- (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl;
-- (void) cancelRequest:(id)sender fromUrl:(NSString*)requestedUrl;
-+ (id)sharedImageCacheManager;
-@end
-
-@protocol ImageCacheManageProtocol
-- (void)imageDownloadDidFinish:(UIImage*)image forUrl:(NSString*)urlSource ;
+- (void) saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 @end

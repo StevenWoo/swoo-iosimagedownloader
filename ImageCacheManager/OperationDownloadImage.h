@@ -1,8 +1,8 @@
 //
-//  ImageCacheManager.h
-//  ImageCacheManager
+//  OperationDownloadImage.h
+//  testbed
 //
-//  Created by Steven Woo on 11/11/13.
+//  Created by Steven Woo on 9/24/13.
 //
 //  The MIT License (MIT)
 //
@@ -25,19 +25,32 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+//
 
 #import <Foundation/Foundation.h>
-#import "OperationDownloadImage.h"
+#import <UIKit/UIKit.h>
+@protocol OperationDownloadImageProtocol;
+@interface OperationDownloadImage : NSOperation <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+	BOOL				isExecuting;
+	BOOL				isFinished;
+	NSString            *requestedUrl;
+@private
 
-@protocol ImageCacheManageProtocol;
-@interface ImageCacheManager : NSObject <OperationDownloadImageProtocol>{
-    
+	id <OperationDownloadImageProtocol> __weak delegateDownloadImage;
 }
-- (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl;
-- (void) cancelRequest:(id)sender fromUrl:(NSString*)requestedUrl;
-+ (id)sharedImageCacheManager;
-@end
+//
+@property (nonatomic, strong) NSString            *requestedUrl;
 
-@protocol ImageCacheManageProtocol
-- (void)imageDownloadDidFinish:(UIImage*)image forUrl:(NSString*)urlSource ;
+@property (nonatomic, weak) id <OperationDownloadImageProtocol> delegateDownloadImage;
+@property (readonly) BOOL isExecuting;
+@property (readonly) BOOL isFinished;
+//
+-(id)init:(id)sender forUrl:(NSString*)inputUrl;
+-(void)cancel;
+-(void)start;
+-(void)finish;
+-(BOOL)isConcurrent;
+@end
+@protocol OperationDownloadImageProtocol
+- (void)operationDownloadImageDidFinish:(OperationDownloadImage *)sender  withImage:(UIImage*)image withRawData:(NSData*)data forUrl:(NSString*)requestedUrl;
 @end

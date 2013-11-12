@@ -16,6 +16,9 @@
 		4B4E11E41831846D00127814 /* libImageCacheManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E11CC1831846C00127814 /* libImageCacheManager.a */; };
 		4B4E11EA1831846D00127814 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B4E11E81831846D00127814 /* InfoPlist.strings */; };
 		4B4E11EC1831846D00127814 /* ImageCacheManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E11EB1831846D00127814 /* ImageCacheManagerTests.m */; };
+		4BACDE19183202CC00D91E0B /* OperationDownloadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */; };
+		4BACDE1D1832041B00D91E0B /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE1C1832041B00D91E0B /* ImageCache.m */; };
+		4BACDE201832063000D91E0B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE1F1832063000D91E0B /* CoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		4B4E11E71831846D00127814 /* ImageCacheManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageCacheManagerTests-Info.plist"; sourceTree = "<group>"; };
 		4B4E11E91831846D00127814 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4B4E11EB1831846D00127814 /* ImageCacheManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCacheManagerTests.m; sourceTree = "<group>"; };
+		4BACDE17183202CC00D91E0B /* OperationDownloadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationDownloadImage.h; sourceTree = "<group>"; };
+		4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationDownloadImage.m; sourceTree = "<group>"; };
+		4BACDE1B1832041B00D91E0B /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = DataModels/ImageCache.h; sourceTree = "<group>"; };
+		4BACDE1C1832041B00D91E0B /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = DataModels/ImageCache.m; sourceTree = "<group>"; };
+		4BACDE1E1832063000D91E0B /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		4BACDE1F1832063000D91E0B /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +119,13 @@
 		4B4E11D11831846C00127814 /* ImageCacheManager */ = {
 			isa = PBXGroup;
 			children = (
+				4BACDE1A183203E800D91E0B /* DataModels */,
+				4BACDE1E1832063000D91E0B /* CoreDataManager.h */,
+				4BACDE1F1832063000D91E0B /* CoreDataManager.m */,
 				4B4E11D41831846C00127814 /* ImageCacheManager.h */,
 				4B4E11D61831846C00127814 /* ImageCacheManager.m */,
+				4BACDE17183202CC00D91E0B /* OperationDownloadImage.h */,
+				4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */,
 				4B4E11D21831846C00127814 /* Supporting Files */,
 			);
 			path = ImageCacheManager;
@@ -141,6 +155,15 @@
 				4B4E11E81831846D00127814 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BACDE1A183203E800D91E0B /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				4BACDE1B1832041B00D91E0B /* ImageCache.h */,
+				4BACDE1C1832041B00D91E0B /* ImageCache.m */,
+			);
+			name = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B4E11D71831846C00127814 /* ImageCacheManager.m in Sources */,
+				4BACDE1D1832041B00D91E0B /* ImageCache.m in Sources */,
+				4BACDE201832063000D91E0B /* CoreDataManager.m in Sources */,
+				4BACDE19183202CC00D91E0B /* OperationDownloadImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +435,7 @@
 				4B4E11F11831846D00127814 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B4E11F21831846D00127814 /* Build configuration list for PBXNativeTarget "ImageCacheManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +444,7 @@
 				4B4E11F41831846D00127814 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
