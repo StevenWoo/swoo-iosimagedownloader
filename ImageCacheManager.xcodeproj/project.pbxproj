@@ -10,16 +10,15 @@
 		4B4E11D01831846C00127814 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E11CF1831846C00127814 /* Foundation.framework */; };
 		4B4E11D51831846C00127814 /* ImageCacheManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B4E11D41831846C00127814 /* ImageCacheManager.h */; };
 		4B4E11D71831846C00127814 /* ImageCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E11D61831846C00127814 /* ImageCacheManager.m */; };
-		4B4E11DE1831846D00127814 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E11DD1831846D00127814 /* XCTest.framework */; };
 		4B4E11DF1831846D00127814 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E11CF1831846C00127814 /* Foundation.framework */; };
 		4B4E11E41831846D00127814 /* libImageCacheManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E11CC1831846C00127814 /* libImageCacheManager.a */; };
-		4B4E11EA1831846D00127814 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B4E11E81831846D00127814 /* InfoPlist.strings */; };
-		4B4E11EC1831846D00127814 /* ImageCacheManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E11EB1831846D00127814 /* ImageCacheManagerTests.m */; };
 		4BACDE19183202CC00D91E0B /* OperationDownloadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */; };
 		4BACDE1D1832041B00D91E0B /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE1C1832041B00D91E0B /* ImageCache.m */; };
 		4BACDE201832063000D91E0B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE1F1832063000D91E0B /* CoreDataManager.m */; };
 		4BACDE221832119B00D91E0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BACDE211832119B00D91E0B /* UIKit.framework */; };
 		4BACDE24183211A400D91E0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BACDE23183211A400D91E0B /* CoreData.framework */; };
+		4BACDE27183340D600D91E0B /* ImageCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE25183340D600D91E0B /* ImageCache.xcdatamodeld */; };
+		4BACDEB3183ABD2800D91E0B /* CoreDataManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BACDE1E1832063000D91E0B /* CoreDataManager.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +38,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				4BACDEB3183ABD2800D91E0B /* CoreDataManager.h in CopyFiles */,
 				4B4E11D51831846C00127814 /* ImageCacheManager.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,10 +52,6 @@
 		4B4E11D41831846C00127814 /* ImageCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCacheManager.h; sourceTree = "<group>"; };
 		4B4E11D61831846C00127814 /* ImageCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCacheManager.m; sourceTree = "<group>"; };
 		4B4E11DC1831846D00127814 /* ImageCacheManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCacheManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B4E11DD1831846D00127814 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4B4E11E71831846D00127814 /* ImageCacheManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageCacheManagerTests-Info.plist"; sourceTree = "<group>"; };
-		4B4E11E91831846D00127814 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4B4E11EB1831846D00127814 /* ImageCacheManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCacheManagerTests.m; sourceTree = "<group>"; };
 		4BACDE17183202CC00D91E0B /* OperationDownloadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationDownloadImage.h; sourceTree = "<group>"; };
 		4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationDownloadImage.m; sourceTree = "<group>"; };
 		4BACDE1B1832041B00D91E0B /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = DataModels/ImageCache.h; sourceTree = "<group>"; };
@@ -64,6 +60,7 @@
 		4BACDE1F1832063000D91E0B /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		4BACDE211832119B00D91E0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4BACDE23183211A400D91E0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4BACDE26183340D600D91E0B /* ImageCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageCache.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B4E11DE1831846D00127814 /* XCTest.framework in Frameworks */,
 				4B4E11E41831846D00127814 /* libImageCacheManager.a in Frameworks */,
 				4B4E11DF1831846D00127814 /* Foundation.framework in Frameworks */,
 			);
@@ -94,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				4B4E11D11831846C00127814 /* ImageCacheManager */,
-				4B4E11E51831846D00127814 /* ImageCacheManagerTests */,
 				4B4E11CE1831846C00127814 /* Frameworks */,
 				4B4E11CD1831846C00127814 /* Products */,
 			);
@@ -115,7 +110,6 @@
 				4BACDE23183211A400D91E0B /* CoreData.framework */,
 				4BACDE211832119B00D91E0B /* UIKit.framework */,
 				4B4E11CF1831846C00127814 /* Foundation.framework */,
-				4B4E11DD1831846D00127814 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,6 +122,7 @@
 				4BACDE1F1832063000D91E0B /* CoreDataManager.m */,
 				4B4E11D41831846C00127814 /* ImageCacheManager.h */,
 				4B4E11D61831846C00127814 /* ImageCacheManager.m */,
+				4BACDE25183340D600D91E0B /* ImageCache.xcdatamodeld */,
 				4BACDE17183202CC00D91E0B /* OperationDownloadImage.h */,
 				4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */,
 				4B4E11D21831846C00127814 /* Supporting Files */,
@@ -139,24 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				4B4E11D31831846C00127814 /* ImageCacheManager-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4B4E11E51831846D00127814 /* ImageCacheManagerTests */ = {
-			isa = PBXGroup;
-			children = (
-				4B4E11EB1831846D00127814 /* ImageCacheManagerTests.m */,
-				4B4E11E61831846D00127814 /* Supporting Files */,
-			);
-			path = ImageCacheManagerTests;
-			sourceTree = "<group>";
-		};
-		4B4E11E61831846D00127814 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4B4E11E71831846D00127814 /* ImageCacheManagerTests-Info.plist */,
-				4B4E11E81831846D00127814 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,7 +217,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B4E11EA1831846D00127814 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BACDE27183340D600D91E0B /* ImageCache.xcdatamodeld in Sources */,
 				4B4E11D71831846C00127814 /* ImageCacheManager.m in Sources */,
 				4BACDE1D1832041B00D91E0B /* ImageCache.m in Sources */,
 				4BACDE201832063000D91E0B /* CoreDataManager.m in Sources */,
@@ -262,7 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B4E11EC1831846D00127814 /* ImageCacheManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,17 +251,6 @@
 			targetProxy = 4B4E11E21831846D00127814 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4B4E11E81831846D00127814 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B4E11E91831846D00127814 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4B4E11ED1831846D00127814 /* Debug */ = {
@@ -451,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4BACDE25183340D600D91E0B /* ImageCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4BACDE26183340D600D91E0B /* ImageCache.xcdatamodel */,
+			);
+			currentVersion = 4BACDE26183340D600D91E0B /* ImageCache.xcdatamodel */;
+			path = ImageCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4B4E11C41831846C00127814 /* Project object */;
 }
