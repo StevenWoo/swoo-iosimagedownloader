@@ -38,6 +38,6 @@
 + (id)sharedImageCacheManager;
 @end
 
-@protocol ImageCacheManageProtocol
+@protocol ImageCacheManagerProtocol
 - (void)imageDownloadDidFinish:(UIImage*)image forUrl:(NSString*)urlSource ;
 @end
