@@ -149,7 +149,14 @@
             // need to save file and make image from file
             NSString  *filePath = [NSString stringWithFormat:@"%@/%@", [self getAppDocumentPath], existingImageCache.img_local_path];
             if( [[NSFileManager defaultManager] fileExistsAtPath:filePath] ){
-                return [UIImage imageWithContentsOfFile:filePath];
+                UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+                if( image ){
+                    return image;
+                }
+                else {
+                    //exists but invalid so try again
+                    flagDownload = YES;
+                }
             }
             else {
                 flagDownload = YES;
@@ -202,9 +209,12 @@
 - (void)operationDownloadImageDidFinish:(OperationDownloadImage *)sender  withImage:(UIImage*)image withRawData:(NSData*)rawData forUrl:(NSString*)requestedUrl {
     
     NSString *fileExtension = [requestedUrl pathExtension];//lastPathComponent?
+    if( fileExtension.length > 3 ) {
+        fileExtension = [fileExtension substringToIndex:3];
+    }
     NSString *fileName = [self createRandomFilename:64];
     if( fileExtension && [fileExtension length]){
-        fileName = [fileName stringByAppendingPathExtension:[requestedUrl pathExtension]];
+        fileName = [fileName stringByAppendingPathExtension:fileExtension];
     }
     
     NSString  *filePath = [NSString stringWithFormat:@"%@/%@", [self getAppDocumentPath], fileName];
