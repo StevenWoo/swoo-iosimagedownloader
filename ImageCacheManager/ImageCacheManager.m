@@ -129,6 +129,9 @@
     return nil;
 }
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl {
+    if( requestedUrl == nil ){
+        return nil;
+    }
     ImageCache *existingImageCache = [self getRecordForUrl:requestedUrl];
     BOOL flagDownload = NO;
     if( !existingImageCache) {
@@ -173,12 +176,10 @@
         if( _queue.operationCount ){
             for(OperationDownloadImage *operationDownload in _queue.operations){
                 if( [operationDownload.requestedUrl isEqualToString:requestedUrl]){
-                    NSLog(@"downloading now");
                     return nil;
                 }
             }
         }
-        NSLog(@"downloading %@", requestedUrl);
         OperationDownloadImage *operationDownloadImage = [[OperationDownloadImage alloc]init:self forUrl:requestedUrl];
         
         NSMutableArray *arrayExisting = [self.dictionaryDelegates objectForKey:requestedUrl];
