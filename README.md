@@ -6,3 +6,4 @@ swoo-iosimagedownloader
 3.) copy momd directory to app under Supporting files, copy, create folders 
 4.) call CoreDataManager sharedInstance to initiate
 5.) call [CoreDataManager sharedInstance] saveContext] where appropriate
+ 
