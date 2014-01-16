@@ -1,18 +1,8 @@
-#
-#  Be sure to run `pod spec lint iosimagedownloader.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
 
 Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
   #
 
   s.name         = "iosimagedownloader"
@@ -25,18 +15,12 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/StevenWoo/swoo-iosimagedownloader"
-  # s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
 
-  s.license      = 'MIT (example)'
-  # s.license      = { :type => 'MIT', :file => 'FILE_LICENSE' }
+
+  s.license      = 'MIT'
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -47,7 +31,7 @@ Pod::Spec.new do |s|
   #
 
   s.author             = { "Steven Woo" => "swoo@tackable.com" }
-  # s.authors          = { "Steven Woo" => "swoo@tackable.com", "other author" => "email@address.com" }
+
   # s.author           = 'Steven Woo', 'other author'
   # s.social_media_url = "http://twitter.com/Steven Woo"
 
@@ -71,7 +55,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/StevenWoo/swoo-iosimagedownloader", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/StevenWoo/swoo-iosimagedownloader.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -82,7 +66,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
+  s.source_files  = 'ImageCacheManager/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
 
   # s.public_header_files = 'Classes/**/*.h'
@@ -96,7 +80,9 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resource = "ImageCache.xcdatamodeld/*"
+  s.resource = "ImageCacheManager/xcdatamodeld/*"
+  s.resource = "ImageCacheManager/ImageCache.momd/*"
+  
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
 
