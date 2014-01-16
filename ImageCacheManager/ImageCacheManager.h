@@ -27,11 +27,9 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "OperationDownloadImage.h"
-
+#import <UIKit/UIKit.h>
 @protocol ImageCacheManageProtocol;
-@interface ImageCacheManager : NSObject <OperationDownloadImageProtocol>{
-    
+@interface ImageCacheManager : NSObject {
 }
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl;
 - (void) cancelRequest:(id)sender fromUrl:(NSString*)requestedUrl;

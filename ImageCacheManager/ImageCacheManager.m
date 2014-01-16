@@ -29,11 +29,10 @@
 
 
 #import "ImageCacheManager.h"
-
 #import "CoreDataManager.h"
-#import "ImageCacheManager.h"
+#import "OperationDownloadImage.h"
 #import "ImageCache.h"
-@interface ImageCacheManager()
+@interface ImageCacheManager()<OperationDownloadImageProtocol>
 @property   NSOperationQueue	* queue;
 @property   NSMutableDictionary * dictionaryDelegates;
 @end
@@ -78,7 +77,7 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error = nil;
     NSArray *directoryContents = [fileManager contentsOfDirectoryAtPath:[self getAppDocumentPath] error:&error];
-    if( [directoryContents count] <50 ){
+    if( [directoryContents count] <100 ){
         return;
     }
     NSLog(@"never tested");
