@@ -47,5 +47,7 @@
 @end
 @protocol ImageCacheDataProtocol
 - (ImageCache *) getImageCacheFor:(NSString*)inputUrl;
-- (BOOL) saveImageCacheInfo:(NSString*)inputUrl atDate:(NSDate* )inputDate forDownloadedFile:(NSString*)inputFilename;
+- (BOOL) saveImageCacheInfo:(NSString*)inputUrl atDate:(NSDate* )inputDate;
+- (BOOL) updateImageCacheInfo:(NSString*)inputUrl atDate:(NSDate* )inputDate forDownloadedFile:(NSString*)inputFilename;
+
 @end 

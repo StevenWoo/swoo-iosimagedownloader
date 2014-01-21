@@ -147,7 +147,7 @@
         if (![context save:&error]) {
 #endif
             
-            if( [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date] forDownloadedFile:nil]){
+            if( [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date]]){
         }
         else {
             flagDownload = YES;
@@ -232,13 +232,13 @@
             NSLog(@"Need to set data delegate");
             return;
         }
-        ImageCache *imageCacheRecord = [_delegateData getImageCacheFor:requestedUrl];
         
-        if( _delegateData && imageCacheRecord ){
-            [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date] forDownloadedFile:fileName];
+        if( _delegateData ){
+            [_delegateData updateImageCacheInfo:requestedUrl atDate:[NSDate date] forDownloadedFile:fileName];
         }
 #if 0
-        ImageCache *imageCacheRecord = [self getRecordForUrl:requestedUrl];
+        ImageCache *imageCacheRecord = [_delegateData getImageCacheFor:requestedUrl];
+
         if( imageCacheRecord){
             NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
             NSError *error;
