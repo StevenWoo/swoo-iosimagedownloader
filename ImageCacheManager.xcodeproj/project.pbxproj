@@ -14,11 +14,9 @@
 		4B4E11E41831846D00127814 /* libImageCacheManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E11CC1831846C00127814 /* libImageCacheManager.a */; };
 		4BACDE19183202CC00D91E0B /* OperationDownloadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */; };
 		4BACDE1D1832041B00D91E0B /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE1C1832041B00D91E0B /* ImageCache.m */; };
-		4BACDE201832063000D91E0B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE1F1832063000D91E0B /* CoreDataManager.m */; };
 		4BACDE221832119B00D91E0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BACDE211832119B00D91E0B /* UIKit.framework */; };
 		4BACDE24183211A400D91E0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BACDE23183211A400D91E0B /* CoreData.framework */; };
 		4BACDE27183340D600D91E0B /* ImageCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BACDE25183340D600D91E0B /* ImageCache.xcdatamodeld */; };
-		4BACDEB3183ABD2800D91E0B /* CoreDataManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BACDE1E1832063000D91E0B /* CoreDataManager.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +36,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				4BACDEB3183ABD2800D91E0B /* CoreDataManager.h in CopyFiles */,
 				4B4E11D51831846C00127814 /* ImageCacheManager.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,8 +53,6 @@
 		4BACDE18183202CC00D91E0B /* OperationDownloadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationDownloadImage.m; sourceTree = "<group>"; };
 		4BACDE1B1832041B00D91E0B /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = DataModels/ImageCache.h; sourceTree = "<group>"; };
 		4BACDE1C1832041B00D91E0B /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = DataModels/ImageCache.m; sourceTree = "<group>"; };
-		4BACDE1E1832063000D91E0B /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
-		4BACDE1F1832063000D91E0B /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		4BACDE211832119B00D91E0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4BACDE23183211A400D91E0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4BACDE26183340D600D91E0B /* ImageCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageCache.xcdatamodel; sourceTree = "<group>"; };
@@ -118,8 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				4BACDE1A183203E800D91E0B /* DataModels */,
-				4BACDE1E1832063000D91E0B /* CoreDataManager.h */,
-				4BACDE1F1832063000D91E0B /* CoreDataManager.m */,
 				4B4E11D41831846C00127814 /* ImageCacheManager.h */,
 				4B4E11D61831846C00127814 /* ImageCacheManager.m */,
 				4BACDE25183340D600D91E0B /* ImageCache.xcdatamodeld */,
@@ -230,7 +223,6 @@
 				4BACDE27183340D600D91E0B /* ImageCache.xcdatamodeld in Sources */,
 				4B4E11D71831846C00127814 /* ImageCacheManager.m in Sources */,
 				4BACDE1D1832041B00D91E0B /* ImageCache.m in Sources */,
-				4BACDE201832063000D91E0B /* CoreDataManager.m in Sources */,
 				4BACDE19183202CC00D91E0B /* OperationDownloadImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,14 +28,24 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@protocol ImageCacheManageProtocol;
+#import "ImageCache.h"
+
+@protocol ImageCacheManagerProtocol;
+@protocol ImageCacheDataProtocol;
+
+
 @interface ImageCacheManager : NSObject {
 }
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl;
 - (void) cancelRequest:(id)sender fromUrl:(NSString*)requestedUrl;
 + (id)sharedImageCacheManager;
+- (void) setDataDelegate:(id)inputSender;
 @end
 
 @protocol ImageCacheManagerProtocol
 - (void)imageDownloadDidFinish:(UIImage*)image forUrl:(NSString*)urlSource ;
 @end
+@protocol ImageCacheDataProtocol
+- (ImageCache *) getImageCacheFor:(NSString*)inputUrl;
+- (BOOL) saveImageCacheInfo:(NSString*)inputUrl atDate:(NSDate* )inputDate forDownloadedFile:(NSString*)inputFilename;
+@end 

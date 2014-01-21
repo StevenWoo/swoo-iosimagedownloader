@@ -29,12 +29,11 @@
 
 
 #import "ImageCacheManager.h"
-#import "CoreDataManager.h"
 #import "OperationDownloadImage.h"
-#import "ImageCache.h"
 @interface ImageCacheManager()<OperationDownloadImageProtocol>
 @property   NSOperationQueue	* queue;
 @property   NSMutableDictionary * dictionaryDelegates;
+@property  id <ImageCacheDataProtocol> __weak delegateData;
 @end
 @implementation ImageCacheManager
 -(id)init {
@@ -108,7 +107,7 @@
     
     return outputRandomString;
 }
-
+#if 0
 - (ImageCache*) getRecordForUrl:(NSString*)inputUrl {
     NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
     
@@ -127,20 +126,28 @@
     }
     return nil;
 }
+#endif
+
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl {
     if( requestedUrl == nil ){
         return nil;
     }
-    ImageCache *existingImageCache = [self getRecordForUrl:requestedUrl];
+    if( !_delegateData ){
+        return nil;
+    }
+    ImageCache *existingImageCache = [_delegateData getImageCacheFor:requestedUrl];
     BOOL flagDownload = NO;
     if( !existingImageCache) {
+#if 0
         NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
         NSError *error;
         ImageCache *newImageCache = [NSEntityDescription insertNewObjectForEntityForName:@"ImageCache" inManagedObjectContext:context];
         newImageCache.last_loaded = [NSDate date];
         newImageCache.img_url = requestedUrl;
         if (![context save:&error]) {
-            NSLog(@"Core Data couldn't save: %@", [error localizedDescription]);
+#endif
+            
+            if( [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date] forDownloadedFile:nil]){
         }
         else {
             flagDownload = YES;
@@ -221,6 +228,16 @@
     
     if( [rawData writeToFile:filePath atomically:YES] ){
         //update database record
+        if( !_delegateData ){
+            NSLog(@"Need to set data delegate");
+            return;
+        }
+        ImageCache *imageCacheRecord = [_delegateData getImageCacheFor:requestedUrl];
+        
+        if( _delegateData && imageCacheRecord ){
+            [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date] forDownloadedFile:fileName];
+        }
+#if 0
         ImageCache *imageCacheRecord = [self getRecordForUrl:requestedUrl];
         if( imageCacheRecord){
             NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
@@ -232,6 +249,7 @@
             }
             
         }
+#endif
     }
     NSMutableArray *arrayDelegates = [self.dictionaryDelegates objectForKey:requestedUrl];
     if( arrayDelegates ){
@@ -241,6 +259,10 @@
         }
         [self.dictionaryDelegates setNilValueForKey:requestedUrl];
     }
+}
+
+-(void)setDataDelegate:(id)inputSender{
+    _delegateData = inputSender;
 }
 @end
 
