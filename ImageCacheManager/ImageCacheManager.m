@@ -214,7 +214,8 @@
         for( id delegateDownload in arrayDelegates ){
             [delegateDownload imageDownloadDidFinish:image forUrl:requestedUrl];
         }
-        [self.dictionaryDelegates setNilValueForKey:requestedUrl];
+        
+        [self.dictionaryDelegates removeObjectForKey:requestedUrl];
     }
 }
 
