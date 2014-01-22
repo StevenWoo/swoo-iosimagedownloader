@@ -107,27 +107,6 @@
     
     return outputRandomString;
 }
-#if 0
-- (ImageCache*) getRecordForUrl:(NSString*)inputUrl {
-    NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
-    
-    NSError *error;
-    
-    NSFetchRequest *imageFetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *imageEntity = [NSEntityDescription entityForName:@"ImageCache" inManagedObjectContext:context];
-    [imageFetchRequest setEntity:imageEntity];
-    
-    NSPredicate *imagePredicate = [NSPredicate predicateWithFormat:@"img_url == %@", inputUrl];
-    [imageFetchRequest setPredicate:imagePredicate];
-    
-    NSArray *fetchedImageObjects = [context executeFetchRequest: imageFetchRequest error:&error];
-    if( [fetchedImageObjects count]){
-        return [fetchedImageObjects objectAtIndex:0];
-    }
-    return nil;
-}
-#endif
-
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl {
     if( requestedUrl == nil ){
         return nil;
@@ -138,16 +117,7 @@
     ImageCache *existingImageCache = [_delegateData getImageCacheFor:requestedUrl];
     BOOL flagDownload = NO;
     if( !existingImageCache) {
-#if 0
-        NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
-        NSError *error;
-        ImageCache *newImageCache = [NSEntityDescription insertNewObjectForEntityForName:@"ImageCache" inManagedObjectContext:context];
-        newImageCache.last_loaded = [NSDate date];
-        newImageCache.img_url = requestedUrl;
-        if (![context save:&error]) {
-#endif
-            
-            if( [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date]]){
+        if( [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date]]){
         }
         else {
             flagDownload = YES;
@@ -193,6 +163,7 @@
             arrayExisting = [[NSMutableArray alloc]init];
         }
         [arrayExisting addObject:sender];
+        [self.dictionaryDelegates setObject:arrayExisting forKey:requestedUrl];
         [_queue addOperation:operationDownloadImage];
         // if more than N files, should delete the oldest files
         [self localDiskCleanup];
@@ -236,20 +207,6 @@
         if( _delegateData ){
             [_delegateData updateImageCacheInfo:requestedUrl atDate:[NSDate date] forDownloadedFile:fileName];
         }
-#if 0
-        ImageCache *imageCacheRecord = [_delegateData getImageCacheFor:requestedUrl];
-
-        if( imageCacheRecord){
-            NSManagedObjectContext *context = [[CoreDataManager sharedInstance] managedObjectContext];
-            NSError *error;
-            imageCacheRecord.img_local_path = fileName;
-            imageCacheRecord.last_loaded = [NSDate date];
-            if (![context save:&error]) {
-                NSLog(@"Core Data couldn't save: %@", [error localizedDescription]);
-            }
-            
-        }
-#endif
     }
     NSMutableArray *arrayDelegates = [self.dictionaryDelegates objectForKey:requestedUrl];
     if( arrayDelegates ){
