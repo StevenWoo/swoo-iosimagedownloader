@@ -118,9 +118,10 @@
     BOOL flagDownload = NO;
     if( !existingImageCache) {
         if( [_delegateData saveImageCacheInfo:requestedUrl atDate:[NSDate date]]){
+            flagDownload = YES;
         }
         else {
-            flagDownload = YES;
+            NSLog(@"Error creating coredata record for image cache");
         }
     }
     else {
@@ -185,7 +186,7 @@
 }
 #pragma mark @protocol OperationDownloadImageProtocol
 - (void)operationDownloadImageDidFinish:(OperationDownloadImage *)sender  withImage:(UIImage*)image withRawData:(NSData*)rawData forUrl:(NSString*)requestedUrl {
-    
+    NSLog(@"%@ was downloaded", requestedUrl);
     NSString *fileExtension = [requestedUrl pathExtension];//lastPathComponent?
     if( fileExtension.length > 3 ) {
         fileExtension = [fileExtension substringToIndex:3];
