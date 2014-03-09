@@ -37,6 +37,8 @@ extern NSString * const kDownloadSubdirectory;
 }
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl;
 - (void) cancelRequest:(id)sender fromUrl:(NSString*)requestedUrl;
+// to skip the UIImage load step
+- (BOOL) fileExists:(NSString*)imageName;
 + (id)sharedImageCacheManager;
 - (void) setDataDelegate:(id)inputSender;
 @end

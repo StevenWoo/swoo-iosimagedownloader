@@ -74,6 +74,11 @@ NSString * const kDownloadSubdirectory = @"DownloadedImages";
     }
     return dataPath;
 }
+- (BOOL) fileExists:(NSString*)imageName {
+    NSString *filePath = [[self getAppDocumentPath] stringByAppendingPathComponent:imageName];
+    return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+}
+
 - (void) localDiskCleanup {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error = nil;
