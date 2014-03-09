@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "iosimagedownloader"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "Download images for display in app, cache most recent 100 in app local storage"
 
   s.description  = <<-DESC
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
 
 
-  s.source       = { :git => "https://github.com/StevenWoo/swoo-iosimagedownloader.git", :tag => "0.0.7" }
+  s.source       = { :git => "https://github.com/StevenWoo/swoo-iosimagedownloader.git", :tag => "0.0.8" }
 
 
 

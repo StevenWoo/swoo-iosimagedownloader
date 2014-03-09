@@ -30,6 +30,8 @@
 
 #import "ImageCacheManager.h"
 #import "OperationDownloadImage.h"
+
+NSString * const kDownloadSubdirectory = @"DownloadedImages";
 @interface ImageCacheManager()<OperationDownloadImageProtocol>
 @property   NSOperationQueue	* queue;
 @property   NSMutableDictionary * dictionaryDelegates;
@@ -64,7 +66,7 @@
 
 - (NSString *) getAppDocumentPath {
     NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dataPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"/DownloadedImages"];
+    NSString *dataPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:kDownloadSubdirectory];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath]) {
         NSError *error;

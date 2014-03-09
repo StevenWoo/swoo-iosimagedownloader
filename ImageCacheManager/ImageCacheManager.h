@@ -32,8 +32,7 @@
 
 @protocol ImageCacheManagerProtocol;
 @protocol ImageCacheDataProtocol;
-
-
+extern NSString * const kDownloadSubdirectory;
 @interface ImageCacheManager : NSObject {
 }
 - (UIImage *) getImage:(id)sender fromUrl:(NSString*)requestedUrl;
